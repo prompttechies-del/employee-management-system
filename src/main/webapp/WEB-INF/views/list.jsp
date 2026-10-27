@@ -14,6 +14,10 @@
 <body>
 <header class="topbar"><div class="topbar-inner">
     <a class="brand" href="${ctx}/employees"><span class="brand-mark">E</span> Employee Manager</a>
+    <form method="post" action="${ctx}/logout">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+        <button class="btn btn-sm" type="submit">Sign out</button>
+    </form>
 </div></header>
 
 <main class="container">
@@ -87,6 +91,7 @@
     <h3>Delete employee?</h3>
     <p id="confirmText"></p>
     <form method="post" id="deleteForm">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
         <div class="dialog-actions">
             <button type="button" class="btn" id="cancel">Cancel</button>
             <button type="submit" class="btn btn-solid-danger">Delete</button>

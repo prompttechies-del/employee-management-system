@@ -14,6 +14,10 @@
 <body>
 <header class="topbar"><div class="topbar-inner">
     <a class="brand" href="${ctx}/employees"><span class="brand-mark">E</span> Employee Manager</a>
+    <form method="post" action="${ctx}/logout">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+        <button class="btn btn-sm" type="submit">Sign out</button>
+    </form>
 </div></header>
 
 <main class="container">
@@ -40,6 +44,7 @@
                 <a class="btn btn-primary" href="${ctx}/employees/${employee.id}/edit">Edit</a>
                 <form method="post" action="${ctx}/employees/${employee.id}/delete"
                       onsubmit="return confirm('Delete this employee permanently?');">
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                     <button class="btn btn-danger" type="submit">Delete</button>
                 </form>
             </div>
