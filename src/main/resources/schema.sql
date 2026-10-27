@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS ems;
+USE ems;
+
+CREATE TABLE IF NOT EXISTS employee (
+    id         INT AUTO_INCREMENT PRIMARY KEY,
+    name       VARCHAR(100)   NOT NULL,
+    department VARCHAR(100)   NOT NULL,
+    salary     DECIMAL(12, 2) NOT NULL,
+    email      VARCHAR(150)   NOT NULL UNIQUE
+);
