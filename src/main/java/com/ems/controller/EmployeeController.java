@@ -1,5 +1,8 @@
 package com.ems.controller;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +26,12 @@ public class EmployeeController {
 
     @GetMapping
     public String list(Model model) {
-        model.addAttribute("employees", dao.findAll());
+        List<Employee> employees = dao.findAll();
+        model.addAttribute("employees", employees);
+        model.addAttribute("departmentCount",
+                employees.stream().map(Employee::getDepartment).distinct().count());
+        model.addAttribute("totalPayroll",
+                employees.stream().map(Employee::getSalary).reduce(BigDecimal.ZERO, BigDecimal::add));
         return "list";
     }
 
