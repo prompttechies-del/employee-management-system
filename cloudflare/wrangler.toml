@@ -1,0 +1,12 @@
+name = "ems"
+main = "src/worker.js"
+compatibility_date = "2025-01-01"
+preview_urls = false
+
+[assets]
+directory = "./public"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "ems"
+database_id = "46715592-9578-4a7f-8828-61eeda45b1f1"

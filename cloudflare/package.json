@@ -1,0 +1,17 @@
+{
+  "name": "ems-cloudflare",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:init": "wrangler d1 execute ems --remote --file=schema.sql",
+    "db:init:local": "wrangler d1 execute ems --local --file=schema.sql"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  },
+  "allowScripts": {
+    "workerd@1.20261023.1": true
+  }
+}
